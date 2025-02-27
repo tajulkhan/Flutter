@@ -14,40 +14,45 @@ class MyTimeWidget extends StatefulWidget {
 }
 
 class _MyTimeWidgetState extends State<MyTimeWidget> {
-  // Initialize formattedTime with the current time
   String formattedTime = '';
+  late Timer _timer; // Declare the Timer
 
   @override
   void initState() {
     super.initState();
-    // Set the initial formatted time
-    formattedTime = getFormattedTime();
+    formattedTime = getFormattedTime(); // Set the initial time
 
-    // Create a Timer that updates the time every second
-    Timer.periodic(Duration(seconds: 1), (Timer t) {
+    // Set up the Timer to update the time every second
+    _timer = Timer.periodic(Duration(seconds: 1), (Timer t) {
       setState(() {
-        formattedTime = getFormattedTime(); // Update the formatted time
+        formattedTime = getFormattedTime(); // Update time every second
       });
     });
   }
 
-  // Function to get the formatted time in the desired format
+  // Function to get the formatted time in "hh:mm a" format
   String getFormattedTime() {
     DateTime now = DateTime.now();
     return DateFormat('hh:mm a').format(now); // Format time as "hh:mm AM/PM"
   }
 
   @override
+  void dispose() {
+    _timer.cancel(); // Cancel the timer when the widget is disposed
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, // Set a background color
+      backgroundColor: Colors.black,
       body: Center(
         child: Text(
-          formattedTime, // Directly display the formatted time
+          formattedTime, // Display the formatted time
           style: TextStyle(
-            color: Colors.white, // Set the text color to white
-            fontSize: 48, // Increase font size for better visibility
-            fontWeight: FontWeight.w600, // Set font weight
+            color: Colors.white,
+            fontSize: 48,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
