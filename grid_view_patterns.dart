@@ -28,14 +28,14 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
 
   // Sample menu items
   final List<Map<String, dynamic>> menuItems = [
-    {'name': 'Margherita Pizza', 'price': 12.99, 'category': 'Pizza', 'image': 'https://via.placeholder.com/150'},
-    {'name': 'Cheese Burger', 'price': 9.99, 'category': 'Burger', 'image': 'https://via.placeholder.com/150'},
-    {'name': 'Pasta Alfredo', 'price': 14.99, 'category': 'Pasta', 'image': 'https://via.placeholder.com/150'},
-    {'name': 'Caesar Salad', 'price': 7.99, 'category': 'Salads', 'image': 'https://via.placeholder.com/150'},
-    {'name': 'Pepperoni Pizza', 'price': 15.99, 'category': 'Pizza', 'image': 'https://via.placeholder.com/150'},
-    {'name': 'Veggie Burger', 'price': 10.99, 'category': 'Burger', 'image': 'https://via.placeholder.com/150'},
-    {'name': 'Penne Arrabbiata', 'price': 13.99, 'category': 'Pasta', 'image': 'https://via.placeholder.com/150'},
-    {'name': 'Greek Salad', 'price': 8.99, 'category': 'Salads', 'image': 'https://via.placeholder.com/150'},
+    {'name': 'Margherita Pizza', 'price': 12.99, 'category': 'Pizza', 'image': 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
+    {'name': 'Cheese Burger', 'price': 9.99, 'category': 'Burger', 'image': 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
+    {'name': 'Pasta Alfredo', 'price': 14.99, 'category': 'Pasta', 'image': 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
+    {'name': 'Caesar Salad', 'price': 7.99, 'category': 'Salads', 'image': 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
+    {'name': 'Pepperoni Pizza', 'price': 15.99, 'category': 'Pizza', 'image': 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
+    {'name': 'Veggie Burger', 'price': 10.99, 'category': 'Burger', 'image': 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
+    {'name': 'Penne Arrabbiata', 'price': 13.99, 'category': 'Pasta', 'image': 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
+    {'name': 'Greek Salad', 'price': 8.99, 'category': 'Salads', 'image': 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'},
   ];
 
   // To keep track of item counts
@@ -166,7 +166,7 @@ class _FoodMenuScreenState extends State<FoodMenuScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.network(item['image'], height: 80, width: 80),
+        Image.network(item['image'], height: 80, width: 100),
         SizedBox(height: 10),
         Text(
           item['name'],
