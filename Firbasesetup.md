@@ -62,3 +62,4 @@ dependencies:
   firebase_core: latest_version
 
 
+apply plugin: 'com.google.gms.google-services'
