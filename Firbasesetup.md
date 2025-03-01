@@ -54,3 +54,11 @@ For a large-scale Flutter app with Firebase, follow these steps:
 - Implement **A/B testing** for feature rollout.
 
 Would you like help with implementing any of these steps in detail?
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: latest_version
+
+
