@@ -1,0 +1,3 @@
+dependencies:
+  firebase_auth: latest_version
+  firebase_core: latest_version
