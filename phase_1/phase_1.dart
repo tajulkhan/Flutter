@@ -18,7 +18,21 @@ void operators() {
   print(a % b); // Modulus (remainder)
 }
 
+void comparison() {
+  int x = 10, y = 5;
+
+  print(x > y); // true
+  print(x == y); // false
+  print(x != y); // true
+
+  bool a = true, b = false;
+  print(a && b); // false (Logical AND)
+  print(a || b); // true  (Logical OR)
+  print(!a); // false (Logical NOT)
+}
+
 void main() {
   datatypes();
   operators();
+  comparison();
 }
