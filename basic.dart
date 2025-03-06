@@ -68,3 +68,21 @@ void main() {
   print('Balance: ${acc.balance}');
 }
 
+//Inheritance (Extending a Class)
+class Animal {
+  void makeSound() {
+    print('Animal makes a sound');
+  }
+}
+
+class Dog extends Animal {
+  void bark() {
+    print('Dog barks');
+  }
+}
+
+void main() {
+  Dog myDog = Dog();
+  myDog.makeSound(); // Inherited method
+  myDog.bark();
+}
