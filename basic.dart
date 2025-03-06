@@ -47,3 +47,24 @@ void main() {
   p.greet(); // Output: Hello, my name is Ali
 }
 
+// Encapsulation (Getters and Setters)
+
+class BankAccount {
+  double _balance = 0; // Private variable (underscore `_` makes it private)
+
+  double get balance => _balance; // Getter
+
+  void deposit(double amount) {  // Setter
+    if (amount > 0) {
+      _balance += amount;
+      print('Deposited: $amount');
+    }
+  }
+}
+
+void main() {
+  BankAccount acc = BankAccount();
+  acc.deposit(100);
+  print('Balance: ${acc.balance}');
+}
+
