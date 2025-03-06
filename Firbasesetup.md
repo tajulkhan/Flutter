@@ -66,3 +66,12 @@ apply plugin: 'com.google.gms.google-services'
 
 C:\Users\DELL\AppData\Local\Pub\Cache\bin\flutterfire configure --project=app-123
 
+**Authenticating Your Client
+Using Keytool on the certificate
+Open a terminal and run the keytool utility provided with Java to get the SHA-1 fingerprint of the certificate. You should get both the release and debug certificate fingerprints.
+
+To get the release certificate fingerprint:
+
+keytool -list -v -alias androiddebugkey -keystore "%USERPROFILE%\.android\debug.keystore" -storepass android -keypass android
+
+
