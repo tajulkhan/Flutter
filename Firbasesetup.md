@@ -63,3 +63,6 @@ dependencies:
 
 
 apply plugin: 'com.google.gms.google-services'
+
+C:\Users\DELL\AppData\Local\Pub\Cache\bin\flutterfire configure --project=app-123
+
