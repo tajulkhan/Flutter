@@ -121,3 +121,16 @@ void main() {
   Dog myDog = Dog();
   myDog.makeSound(); // Output: Dog barks
 }
+
+//Mixins (Code Reusability in Dart)
+mixin Fly {
+  void fly() => print('Flying...');
+}
+
+class Bird with Fly {}
+
+void main() {
+  Bird sparrow = Bird();
+  sparrow.fly(); // Output: Flying...
+}
+
