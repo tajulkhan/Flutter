@@ -86,3 +86,22 @@ void main() {
   myDog.makeSound(); // Inherited method
   myDog.bark();
 }
+
+// Method Overriding (Polymorphism)
+class Animal {
+  void makeSound() {
+    print('Some sound');
+  }
+}
+
+class Dog extends Animal {
+  @override
+  void makeSound() {
+    print('Dog barks');
+  }
+}
+
+void main() {
+  Dog myDog = Dog();
+  myDog.makeSound(); // Output: Dog barks
+}
