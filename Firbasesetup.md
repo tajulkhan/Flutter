@@ -74,4 +74,4 @@ To get the release certificate fingerprint:
 
 keytool -list -v -alias androiddebugkey -keystore "%USERPROFILE%\.android\debug.keystore" -storepass android -keypass android
 
-
+ keytool -list -v -keystore "C:\Users\DELL\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
