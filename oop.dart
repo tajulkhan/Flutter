@@ -32,3 +32,36 @@ void main() {
     print('Execution complete.');
   }
 }
+
+// Throwing Custom Exceptions
+class InvalidAgeException implements Exception {
+  String errorMessage() => 'Age cannot be negative!';
+}
+
+void checkAge(int age) {
+  if (age < 0) {
+    throw InvalidAgeException();
+  } else {
+    print('Valid age: $age');
+  }
+}
+
+void main() {
+  try {
+    checkAge(-5);
+  } catch (e) {
+    print(e);
+  }
+}
+
+// Asynchronous Programming in Dart (Futures, async-await, Streams)
+// Dart is single-threaded, but it supports asynchronous operations like API calls and database queries using Futures and async-await.
+// Futures (Delayed Execution)
+Future<String> fetchData() {
+  return Future.delayed(Duration(seconds: 2), () => 'Data loaded!');
+}
+
+void main() {
+  print('Taj Fetching data...');
+  fetchData().then((data) => print(data));
+}
