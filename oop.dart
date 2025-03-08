@@ -141,3 +141,20 @@ void main() {
   name ??= 'Ali'; // Assign if null
   print(name);
 }
+// Metaprogramming (Reflection & Annotations in Dart)
+
+class Todo {
+  final String message;
+  const Todo(this.message);
+}
+
+@Todo('Implement login feature')
+class LoginScreen {
+  void display() {
+    print('Login Screen');
+  }
+}
+
+void main() {
+  LoginScreen().display();
+}
