@@ -95,8 +95,11 @@ void main() async {
   print('Fetching data...');
   await fetchData();
 }
-// Streams in Dart (Handling Continuous Data Flow)
 
+// Streams in Dart (Handling Continuous Data Flow)// While Futures return a single value, Streams allow continuous data flow (e.g., real-time updates, WebSockets, etc.).
+// async* → Marks a function as returning a stream.
+// yield → Sends values one by one.
+// await for → Listens to stream values as they arrive
 Stream<int> countDown() async* {
   for (int i = 5; i > 0; i--) {
     await Future.delayed(Duration(seconds: 1));
