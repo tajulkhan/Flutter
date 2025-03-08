@@ -80,3 +80,18 @@ void main() async {
   String data = await fetchData();
   print(data);
 }
+
+//Handling Errors in Async-Await
+Future<void> fetchData() async {
+  try {
+    await Future.delayed(Duration(seconds: 2));
+    throw Exception('Something went wrong');
+  } catch (e) {
+    print('Error: $e');
+  }
+}
+
+void main() async {
+  print('Fetching data...');
+  await fetchData();
+}
