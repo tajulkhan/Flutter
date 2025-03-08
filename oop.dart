@@ -8,3 +8,15 @@ void main() {
     print('Error occurred: $e');
   }
 }
+
+// Why use on instead of catch?
+// on → Catches specific exceptions
+// catch → Catches all exceptions
+void main() {
+  try {
+    int number = int.parse('abc'); // Invalid number format
+    print(number);
+  } on FormatException {
+    print('Invalid number format!');
+  }
+}
