@@ -57,6 +57,8 @@ void main() {
 // Asynchronous Programming in Dart (Futures, async-await, Streams)
 // Dart is single-threaded, but it supports asynchronous operations like API calls and database queries using Futures and async-await.
 // Futures (Delayed Execution)
+// Future.delayed() → Simulates a delay (like a network request).
+// .then() → Runs when the Future completes.
 Future<String> fetchData() {
   return Future.delayed(Duration(seconds: 2), () => 'Data loaded!');
 }
@@ -64,4 +66,17 @@ Future<String> fetchData() {
 void main() {
   print('Taj Fetching data...');
   fetchData().then((data) => print(data));
+}
+
+// Async-Await (Better Handling of Futures)
+// Instead of using .then(), Dart provides async and await for a cleaner way to handle asynchronous operations.
+Future<String> fetchData() async {
+  await Future.delayed(Duration(seconds: 2));
+  return 'Data loaded!';
+}
+
+void main() async {
+  print('Fetching data...');
+  String data = await fetchData();
+  print(data);
 }
