@@ -95,3 +95,18 @@ void main() async {
   print('Fetching data...');
   await fetchData();
 }
+// Streams in Dart (Handling Continuous Data Flow)
+
+Stream<int> countDown() async* {
+  for (int i = 5; i > 0; i--) {
+    await Future.delayed(Duration(seconds: 1));
+    yield i;
+  }
+}
+
+void main() async {
+  await for (int number in countDown()) {
+    print(number);
+  }
+  print('Done!');
+}
