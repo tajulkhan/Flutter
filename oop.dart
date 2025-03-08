@@ -113,3 +113,31 @@ void main() async {
   }
   print('Done!');
 }
+
+// Null Safety in Dart (Avoiding Null Errors)
+// Dart has null safety to prevent null errors at runtime.
+// Declaring Nullable and Non-Nullable Variables
+
+String? name; // Nullable (can be null)
+String nonNullable = 'Taj'; // Non-nullable
+
+void main() {
+  print(name); // Output: null
+  print(nonNullable); // Output: Taj
+}
+
+// Using the Null Check (!)
+void main() {
+  String? name;
+  print(name!.length); // Error if name is null
+}
+
+// Using the Null Coalescing Operator (?? & ??=)
+void main() {
+  String? name;
+
+  print(name ?? 'Default Name'); // If null, use 'Default Name'
+
+  name ??= 'Ali'; // Assign if null
+  print(name);
+}
