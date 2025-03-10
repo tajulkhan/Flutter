@@ -36,7 +36,6 @@ void main() {
 class InvalidAgeException implements Exception {
   String errorMessage() => 'Age cannot be negative!';
 }
-
 void checkAge(int age) {
   if (age < 0) {
     throw InvalidAgeException();
