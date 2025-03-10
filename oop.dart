@@ -158,3 +158,44 @@ class LoginScreen {
 void main() {
   LoginScreen().display();
 }
+
+//Bank Account System (OOP, Getters/Setters, Exception Handling)
+class BankAccount {
+  double _balance = 0; // Private variable
+
+  // Getter to check balance
+  double get balance => _balance;
+
+  // Deposit method
+  void deposit(double amount) {
+    if (amount > 0) {
+      _balance += amount;
+      print('Deposited: $amount');
+    }
+  }
+
+  // Withdraw method
+  void withdraw(double amount) {
+    if (amount > _balance) {
+      throw Exception('Insufficient funds!');
+    }
+    _balance -= amount;
+    print('Withdrawn: $amount');
+  }
+}
+
+void main() {
+  try {
+    BankAccount account = BankAccount();
+    account.deposit(500);
+    print('New Balance: ${account.balance}');
+    
+    account.withdraw(200);
+    print('New Balance: ${account.balance}');
+    
+    account.withdraw(500); // This should throw an error
+  } catch (e) {
+    print('Error: $e');
+  }
+}
+
