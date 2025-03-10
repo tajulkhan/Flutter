@@ -219,3 +219,20 @@ void main() async {
     print('Error: $e');
   }
 }
+
+//Stream of Numbers (Streams, Async-Await, Yield)
+
+Stream<int> generateNumbers() async* {
+  for (int i = 1; i <= 5; i++) {
+    await Future.delayed(Duration(seconds: 1));
+    yield i;
+  }
+}
+
+void main() async {
+  await for (int num in generateNumbers()) {
+    print(num);
+  }
+  print('Done!');
+}
+
