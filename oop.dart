@@ -236,3 +236,26 @@ void main() async {
   print('Done!');
 }
 
+//Parallel Processing with Isolates (Heavy Computation)
+import 'dart:isolate';
+
+void calculateSum(SendPort sendPort) {
+  int sum = 0;
+  for (int i = 1; i <= 1000000000; i++) {
+    sum += i;
+  }
+  sendPort.send(sum);
+}
+
+void main() async {
+  print('Calculating sum...');
+  
+  ReceivePort receivePort = ReceivePort();
+  await Isolate.spawn(calculateSum, receivePort.sendPort);
+  
+  receivePort.listen((message) {
+    print('Sum: $message');
+    receivePort.close();
+  });
+}
+
