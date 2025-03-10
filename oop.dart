@@ -1,5 +1,4 @@
 //Error Handling in Dart (try-catch, finally, custom exceptions)
-
 void main() {
   try {
     int result = 10 ~/ 0; // Division by zero error
