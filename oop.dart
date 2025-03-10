@@ -199,3 +199,23 @@ void main() {
   }
 }
 
+//Fetch Data from a Fake API (Async-Await, Future, Error Handling)
+Future<String> fetchUserData(int id) async {
+  if (id < 1) {
+    throw Exception('Invalid user ID');
+  }
+  
+  await Future.delayed(Duration(seconds: 3)); // Simulating API delay
+  return 'Name: Ali, Age: 25';
+}
+
+void main() async {
+  print('Fetching user data...');
+  
+  try {
+    String data = await fetchUserData(1);
+    print('User Data: $data');
+  } catch (e) {
+    print('Error: $e');
+  }
+}
