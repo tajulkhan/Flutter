@@ -322,3 +322,41 @@ void main() {
   manager.work(); // Inherited from Employee
   manager.manage();
 }
+
+//Polymorphism (Method Overriding)
+// Base class
+class Shape {
+  double getArea() {
+    return 0;
+  }
+}
+
+// Circle class overriding getArea()
+class Circle extends Shape {
+  double radius;
+  Circle(this.radius);
+
+  @override
+  double getArea() {
+    return 3.14 * radius * radius;
+  }
+}
+
+// Rectangle class overriding getArea()
+class Rectangle extends Shape {
+  double width, height;
+  Rectangle(this.width, this.height);
+
+  @override
+  double getArea() {
+    return width * height;
+  }
+}
+
+void main() {
+  Shape shape1 = Circle(5);
+  Shape shape2 = Rectangle(4, 6);
+
+  print('Circle Area: ${shape1.getArea()}');
+  print('Rectangle Area: ${shape2.getArea()}');
+}
