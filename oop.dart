@@ -435,3 +435,17 @@ void main() {
 
   print(db1 == db2); // True (same instance)
 }
+
+// String Methods (Daily Use)
+void main() {
+  String text = "  Hello Dart!  ";
+
+  print(text.trim()); // Removes spaces -> "Hello Dart!"
+  print(text.toUpperCase()); // "HELLO DART!"
+  print(text.toLowerCase()); // "hello dart!"
+  print(text.contains("Dart")); // true
+  print(text.replaceAll("Dart", "Flutter")); // "Hello Flutter!"
+  print(text.split(" ")); // ["", "", "Hello", "Dart!", "", ""]
+  print(text.startsWith("Hello")); // false (because of spaces)
+  print(text.trim().startsWith("Hello")); // true
+}
