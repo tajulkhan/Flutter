@@ -387,3 +387,22 @@ void main() {
   Payment payment2 = PayPalPayment();
   payment2.processPayment(200);
 }
+//  Mixins (Reusable Code Without Inheritance)
+mixin CanBark {
+  void bark() => print('Woof Woof!');
+}
+
+mixin CanMeow {
+  void meow() => print('Meow Meow!');
+}
+
+class Dog with CanBark {}
+class Cat with CanMeow {}
+
+void main() {
+  Dog dog = Dog();
+  dog.bark(); // Woof Woof!
+
+  Cat cat = Cat();
+  cat.meow(); // Meow Meow!
+}
