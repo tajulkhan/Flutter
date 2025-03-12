@@ -360,3 +360,30 @@ void main() {
   print('Circle Area: ${shape1.getArea()}');
   print('Rectangle Area: ${shape2.getArea()}');
 }
+
+//Abstract Classes (Enforce Implementation)
+abstract class Payment {
+  void processPayment(double amount); // Abstract method
+}
+
+class CreditCardPayment extends Payment {
+  @override
+  void processPayment(double amount) {
+    print('Processing Credit Card Payment: \$${amount}');
+  }
+}
+
+class PayPalPayment extends Payment {
+  @override
+  void processPayment(double amount) {
+    print('Processing PayPal Payment: \$${amount}');
+  }
+}
+
+void main() {
+  Payment payment1 = CreditCardPayment();
+  payment1.processPayment(100);
+
+  Payment payment2 = PayPalPayment();
+  payment2.processPayment(200);
+}
