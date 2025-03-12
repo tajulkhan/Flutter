@@ -406,3 +406,32 @@ void main() {
   Cat cat = Cat();
   cat.meow(); // Meow Meow!
 }
+
+class Database {
+  static Database? _instance;
+
+  // Private constructor
+  Database._internal();
+
+  // Factory constructor ensures only ONE instance
+  factory Database() {
+    if (_instance == null) {
+      _instance = Database._internal();
+      print('Database Created!');
+    }
+    return _instance!;
+  }
+
+  void query(String sql) {
+    print('Executing query: $sql');
+  }
+}
+
+void main() {
+  var db1 = Database();
+  var db2 = Database();
+
+  db1.query('SELECT * FROM users');
+
+  print(db1 == db2); // True (same instance)
+}
