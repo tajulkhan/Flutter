@@ -500,3 +500,20 @@ void main() {
   DateTime pastDate = now.subtract(Duration(days: 5));
   print(pastDate); // Date 5 days ago
 }
+
+// Real-World Example
+void main() {
+  List<Map<String, dynamic>> products = [
+    {"name": "Laptop", "price": 1200.99},
+    {"name": "Phone", "price": 699.49},
+    {"name": "Tablet", "price": 349.99}
+  ];
+
+  // Sort products by price
+  products.sort((a, b) => a["price"].compareTo(b["price"]));
+
+  // Display formatted output
+  products.forEach((product) {
+    print("${product['name']}: \$${product['price'].toStringAsFixed(2)}");
+  });
+}
