@@ -256,3 +256,39 @@ void main() async {
     receivePort.close();
   });
 }
+//Encapsulation (Data Hiding)
+class BankAccount {
+  String owner;
+  double _balance; // Private variable
+
+  BankAccount(this.owner, this._balance);
+
+  // Getter for balance
+  double get balance => _balance;
+
+  // Setter with validation
+  set deposit(double amount) {
+    if (amount > 0) {
+      _balance += amount;
+      print('Deposited: $amount');
+    } else {
+      print('Invalid deposit amount');
+    }
+  }
+
+  void withdraw(double amount) {
+    if (amount > _balance) {
+      print('Insufficient funds!');
+    } else {
+      _balance -= amount;
+      print('Withdrawn: $amount');
+    }
+  }
+}
+
+void main() {
+  var account = BankAccount('Taj', 500);
+  account.deposit = 200; // Using setter
+  print('Balance: ${account.balance}'); // Using getter
+  account.withdraw(100);
+}
