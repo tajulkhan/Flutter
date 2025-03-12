@@ -449,3 +449,23 @@ void main() {
   print(text.startsWith("Hello")); // false (because of spaces)
   print(text.trim().startsWith("Hello")); // true
 }
+
+//  List Methods (Daily Use)
+void main() {
+  List<int> numbers = [3, 1, 4, 1, 5, 9];
+
+  print(numbers.length); // 6
+  print(numbers.first); // 3
+  print(numbers.last); // 9
+  print(numbers.reversed.toList()); // [9, 5, 1, 4, 1, 3]
+  print(numbers.contains(4)); // true
+  numbers.sort(); // Sorts list
+  print(numbers); // [1, 1, 3, 4, 5, 9]
+  
+  // Functional methods
+  List<int> doubled = numbers.map((n) => n * 2).toList();
+  print(doubled); // [2, 2, 6, 8, 10, 18]
+
+  List<int> filtered = numbers.where((n) => n > 3).toList();
+  print(filtered); // [4, 5, 9]
+}
