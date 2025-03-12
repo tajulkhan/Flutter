@@ -292,3 +292,33 @@ void main() {
   print('Balance: ${account.balance}'); // Using getter
   account.withdraw(100);
 }
+
+//Inheritance (Code Reusability)
+// Parent class
+class Employee {
+  String name;
+  double salary;
+
+  Employee(this.name, this.salary);
+
+  void work() {
+    print('$name is working...');
+  }
+}
+
+// Child class inherits from Employee
+class Manager extends Employee {
+  String department;
+
+  Manager(String name, double salary, this.department) : super(name, salary);
+
+  void manage() {
+    print('$name is managing $department department');
+  }
+}
+
+void main() {
+  var manager = Manager('Taj', 5000, 'IT');
+  manager.work(); // Inherited from Employee
+  manager.manage();
+}
