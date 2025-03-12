@@ -469,3 +469,19 @@ void main() {
   List<int> filtered = numbers.where((n) => n > 3).toList();
   print(filtered); // [4, 5, 9]
 }
+// Map Methods (Key-Value Pairs)
+void main() {
+  Map<String, int> ages = {'Alice': 30, 'Bob': 25, 'Charlie': 35};
+
+  print(ages.keys); // (Alice, Bob, Charlie)
+  print(ages.values); // (30, 25, 35)
+  print(ages.containsKey('Bob')); // true
+  print(ages['Alice']); // 30
+  ages['David'] = 40; // Add new key-value pair
+  print(ages);
+  
+  // Loop through map
+  ages.forEach((key, value) {
+    print('$key is $value years old');
+  });
+}
