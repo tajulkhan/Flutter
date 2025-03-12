@@ -485,3 +485,18 @@ void main() {
     print('$key is $value years old');
   });
 }
+
+//  Date & Time Methods
+void main() {
+  DateTime now = DateTime.now();
+  print(now.toString()); // Current date-time
+  print(now.year); // Get year
+  print(now.month); // Get month
+  print(now.day); // Get day
+  
+  DateTime futureDate = now.add(Duration(days: 5));
+  print(futureDate); // Date after 5 days
+  
+  DateTime pastDate = now.subtract(Duration(days: 5));
+  print(pastDate); // Date 5 days ago
+}
