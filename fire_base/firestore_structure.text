@@ -1,0 +1,14 @@
+food_menu (Collection)
+│
+├── Pure Veg (Document)
+│   ├── category: "Pure Veg"
+│   ├── items: [
+│       { "name": "Cutlet", "price": 90, "isChecked": false },
+│       { "name": "Paneer Tikka", "price": 120, "isChecked": false }
+│     ]
+│
+├── Chinese (Document)
+│   ├── category: "Chinese"
+│   ├── items:
+│     ├── { "name": "Spring Roll", "price": 100, "isChecked": false }
+│     ├── { "name": "Fried Rice", "price": 110, "isChecked": false }
