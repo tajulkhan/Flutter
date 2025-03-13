@@ -10,3 +10,4 @@ Text(
   ),
 ),
 
+// Duplicate an Item (Map) Inside a Firestore Document
