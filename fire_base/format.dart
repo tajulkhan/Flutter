@@ -11,3 +11,9 @@ Text(
 ),
 
 // Duplicate an Item (Map) Inside a Firestore Document
+food_menu (collection)
+  ├── starters (document)
+  │     ├── items: [
+  │          {"name": "Cutlet", "price": 90, "isChecked": false},
+  │          {"name": "Chicken", "price": 100, "isChecked": false}
+  │        ]
