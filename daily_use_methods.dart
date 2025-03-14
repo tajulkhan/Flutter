@@ -29,3 +29,21 @@ void main() {
 //  Why use these?
 // for → When you need index access
 // forEach() → Clean and readable
+
+
+// Searching & Filtering ----------
+void main() {
+  List<int> numbers = [3, 7, 10, 14, 21];
+
+  bool exists = numbers.contains(10); // true
+  int firstEven = numbers.firstWhere((n) => n % 2 == 0); // 10
+  List<int> evenNumbers = numbers.where((n) => n % 2 == 0).toList(); // [10, 14]
+
+  print(exists);
+  print(firstEven);
+  print(evenNumbers);
+}
+// ✅ Why use these?
+// contains(value) → Checks if value exists
+// firstWhere(condition) → Finds first matching item
+// where(condition).toList() → Filters items
