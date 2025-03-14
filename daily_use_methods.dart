@@ -47,3 +47,14 @@ void main() {
 // contains(value) → Checks if value exists
 // firstWhere(condition) → Finds first matching item
 // where(condition).toList() → Filters items
+
+//Transforming Lists --------------
+void main() {
+  List<int> numbers = [1, 2, 3, 4];
+
+  List<int> doubled = numbers.map((n) => n * 2).toList(); // [2, 4, 6, 8]
+  List<String> stringNumbers = numbers.map((n) => "Number: $n").toList();
+
+  print(doubled);
+  print(stringNumbers);
+}
