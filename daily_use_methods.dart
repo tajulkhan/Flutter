@@ -58,3 +58,16 @@ void main() {
   print(doubled);
   print(stringNumbers);
 }
+//Sorting Lists
+void main() {
+  List<int> numbers = [5, 2, 8, 1, 9];
+
+  numbers.sort(); // Ascending [1, 2, 5, 8, 9]
+  numbers.sort((a, b) => b.compareTo(a)); // Descending [9, 8, 5, 2, 1]
+
+  print(numbers);
+}
+
+// Why use .sort()?
+// Sorts numbers or text
+// Custom sorting logic possible
