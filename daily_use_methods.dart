@@ -11,3 +11,21 @@ void main() {
 
   print(numbers);
 }
+// Looping Through a List
+void main() {
+  List<String> names = ["Alice", "Bob", "Charlie"];
+
+  for (int i = 0; i < names.length; i++) {
+    print(names[i]);
+  }
+
+  for (var name in names) {
+    print(name);
+  }
+
+  names.forEach((name) => print(name)); // Lambda function
+}
+
+//  Why use these?
+// for → When you need index access
+// forEach() → Clean and readable
