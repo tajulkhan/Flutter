@@ -118,3 +118,17 @@ void main() {
     print("${entry.key} is ${entry.value} years old");
   }
 }
+
+// Converting Maps to List
+void main() {
+  Map<String, int> ages = {"Alice": 25, "Bob": 30, "Charlie": 28};
+
+  List<String> names = ages.keys.toList(); // ["Alice", "Bob", "Charlie"]
+  List<int> ageList = ages.values.toList(); // [25, 30, 28]
+
+  print(names);
+  print(ageList);
+}
+
+// ✅ Why convert?
+// To use list methods on keys/values
