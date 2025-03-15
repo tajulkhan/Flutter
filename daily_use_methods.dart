@@ -81,3 +81,16 @@ void main() {
   ages["David"] = 40; // Add new entry
   print(ages);
 }
+
+// Checking Keys & Values
+void main() {
+  Map<String, int> ages = {"Alice": 25, "Bob": 30, "Charlie": 28};
+
+  print(ages.containsKey("Alice")); // true
+  print(ages.containsValue(30)); // true
+  print(ages.keys); // (Alice, Bob, Charlie)
+  print(ages.values); // (25, 30, 28)
+}
+
+// containsKey() → Checks if a key exists
+// keys and values → Get all keys or values
