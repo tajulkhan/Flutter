@@ -94,3 +94,14 @@ void main() {
 
 // containsKey() → Checks if a key exists
 // keys and values → Get all keys or values
+
+// Removing Elements
+void main() {
+  Map<String, int> ages = {"Alice": 25, "Bob": 30, "Charlie": 28};
+
+  ages.remove("Bob"); // Removes Bob
+  print(ages);
+}
+
+// ✅ Why use remove()?
+// Deletes a specific key
