@@ -132,3 +132,17 @@ void main() {
 
 // ✅ Why convert?
 // To use list methods on keys/values
+
+//  Real-World Example
+void main() {
+  List<Map<String, dynamic>> users = [
+    {"name": "Alice", "age": 25, "isActive": true},
+    {"name": "Bob", "age": 30, "isActive": false},
+    {"name": "Charlie", "age": 28, "isActive": true}
+  ];
+
+  // Get only active users
+  List<Map<String, dynamic>> activeUsers = users.where((user) => user["isActive"]).toList();
+
+  print(activeUsers);
+}
