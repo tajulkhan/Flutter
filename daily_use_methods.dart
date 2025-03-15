@@ -5,12 +5,13 @@ void main() {
   numbers.add(4); // [1, 2, 3, 4]
   numbers.addAll([5, 6]); // [1, 2, 3, 4, 5, 6]
   numbers.insert(2, 10); // Insert at index 2 -> [1, 2, 10, 3, 4, 5, 6]
-  
+
   numbers.remove(3); // Removes value 3 -> [1, 2, 10, 4, 5, 6]
   numbers.removeAt(0); // Removes index 0 -> [2, 10, 4, 5, 6]
 
   print(numbers);
 }
+
 // Looping Through a List
 void main() {
   List<String> names = ["Alice", "Bob", "Charlie"];
@@ -29,7 +30,6 @@ void main() {
 //  Why use these?
 // for → When you need index access
 // forEach() → Clean and readable
-
 
 // Searching & Filtering ----------
 void main() {
@@ -58,6 +58,7 @@ void main() {
   print(doubled);
   print(stringNumbers);
 }
+
 //Sorting Lists
 void main() {
   List<int> numbers = [5, 2, 8, 1, 9];
@@ -71,3 +72,12 @@ void main() {
 // Why use .sort()?
 // Sorts numbers or text
 // Custom sorting logic possible
+
+//Map (Object) Methods in Dart
+void main() {
+  Map<String, int> ages = {"Alice": 25, "Bob": 30, "Charlie": 28};
+
+  print(ages["Bob"]); // 30
+  ages["David"] = 40; // Add new entry
+  print(ages);
+}
