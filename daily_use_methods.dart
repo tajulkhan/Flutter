@@ -198,3 +198,15 @@ void main() {
 
   print(squared); // [1, 4, 9]
 }
+
+// Null Safety in Dart (?, !, late)
+void main() {
+  String? name;
+  print(name); // Output: null
+}
+
+// Non-Nullable with Default (??)
+void main() {
+  String? username;
+  print(username ?? "Guest"); // Output: Guest
+}
