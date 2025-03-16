@@ -160,3 +160,12 @@ void sayHello() {
 void main() {
   executeFunction(sayHello); // Output: Hello from Dart!
 }
+
+Function multiplier(int n) {
+  return (int x) => x * n;
+}
+
+void main() {
+  var doubleIt = multiplier(2);
+  print(doubleIt(5)); // Output: 10
+}
