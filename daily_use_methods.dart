@@ -138,11 +138,25 @@ void main() {
   List<Map<String, dynamic>> users = [
     {"name": "Alice", "age": 25, "isActive": true},
     {"name": "Bob", "age": 30, "isActive": false},
-    {"name": "Charlie", "age": 28, "isActive": true}
+    {"name": "Charlie", "age": 28, "isActive": true},
   ];
 
   // Get only active users
-  List<Map<String, dynamic>> activeUsers = users.where((user) => user["isActive"]).toList();
+  List<Map<String, dynamic>> activeUsers =
+      users.where((user) => user["isActive"]).toList();
 
   print(activeUsers);
+}
+
+//Higher-Order Functions
+void executeFunction(Function fn) {
+  fn();
+}
+
+void sayHello() {
+  print("Hello from Dart!");
+}
+
+void main() {
+  executeFunction(sayHello); // Output: Hello from Dart!
 }
