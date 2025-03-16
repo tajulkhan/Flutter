@@ -189,3 +189,12 @@ void main() {
 
   print(numbers); // [1, 2, 3, 4]
 }
+
+// Using for Inside Collections
+void main() {
+  List<int> numbers = [1, 2, 3];
+
+  List<int> squared = [for (var n in numbers) n * n];
+
+  print(squared); // [1, 4, 9]
+}
