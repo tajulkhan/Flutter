@@ -179,3 +179,13 @@ void main() {
 
   print(combined); // [1, 2, 3, 4, 5, 6]
 }
+//Used for merging lists
+
+// Conditional Lists (if)
+void main() {
+  bool addExtra = true;
+
+  List<int> numbers = [1, 2, 3, if (addExtra) 4];
+
+  print(numbers); // [1, 2, 3, 4]
+}
