@@ -210,3 +210,9 @@ void main() {
   String? username;
   print(username ?? "Guest"); // Output: Guest
 }
+
+// Force Unwrapping (!)
+void main() {
+  String? name = "Alice";
+  print(name!.length); // Works because name is not null
+}
