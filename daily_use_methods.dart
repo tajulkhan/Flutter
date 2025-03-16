@@ -216,3 +216,10 @@ void main() {
   String? name = "Alice";
   print(name!.length); // Works because name is not null
 }
+
+// Late Initialization (late)
+late String greeting;
+void main() {
+  greeting = "Hello, Dart!";
+  print(greeting);
+}
