@@ -169,3 +169,13 @@ void main() {
   var doubleIt = multiplier(2);
   print(doubleIt(5)); // Output: 10
 }
+
+// Spread Operator (...), if, and for in Collections
+void main() {
+  List<int> numbers = [1, 2, 3];
+  List<int> moreNumbers = [4, 5, 6];
+
+  List<int> combined = [...numbers, ...moreNumbers];
+
+  print(combined); // [1, 2, 3, 4, 5, 6]
+}
