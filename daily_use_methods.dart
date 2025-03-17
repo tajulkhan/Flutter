@@ -267,3 +267,22 @@ extension StringExtension on String {
 void main() {
   print("dart".capitalize()); // Output: Dart
 }
+//Isolates (Multithreading in Dart)
+import 'dart:isolate';
+
+void heavyComputation(SendPort sendPort) {
+  int sum = 0;
+  for (int i = 0; i < 1000000000; i++) {
+    sum += i;
+  }
+  sendPort.send(sum);
+}
+
+void main() async {
+  ReceivePort receivePort = ReceivePort();
+  await Isolate.spawn(heavyComputation, receivePort.sendPort);
+
+  receivePort.listen((message) {
+    print("Result: $message");
+  });
+}
