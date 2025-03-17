@@ -223,3 +223,13 @@ void main() {
   greeting = "Hello, Dart!";
   print(greeting);
 }
+//Futures & Async-Await (Asynchronous Programming)
+void main() {
+  print("Fetching data...");
+
+  Future.delayed(Duration(seconds: 2), () {
+    print("Data received!");
+  });
+
+  print("Waiting...");
+}
