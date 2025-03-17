@@ -233,3 +233,14 @@ void main() {
 
   print("Waiting...");
 }
+//Example 2: Async-Await
+Future<String> fetchUserData() async {
+  await Future.delayed(Duration(seconds: 2));
+  return "User Data Loaded";
+}
+
+void main() async {
+  print("Loading...");
+  String data = await fetchUserData();
+  print(data);
+}
