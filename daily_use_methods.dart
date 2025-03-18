@@ -337,4 +337,13 @@ void main() {
   bubbleSort(numbers);
   print(numbers); // Output: [1, 2, 3, 5, 8]
 }
+//String Manipulation (Anagrams, Palindromes, Substrings)
+bool isPalindrome(String s) {
+  return s == s.split('').reversed.join('');
+}
+
+void main() {
+  print(isPalindrome("racecar")); // Output: true
+  print(isPalindrome("hello")); // Output: false
+}
 
