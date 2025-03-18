@@ -299,4 +299,15 @@ void main() async {
     print(value);
   }
 }
+//Extension Methods (Custom Functions on Existing Classes)
+extension StringExtension on String {
+  String capitalize() {
+    return this[0].toUpperCase() + substring(1);
+  }
+}
+
+void main() {
+  print("dart".capitalize()); // Output: Dart
+}
+
 
