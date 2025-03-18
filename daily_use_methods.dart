@@ -346,4 +346,18 @@ void main() {
   print(isPalindrome("racecar")); // Output: true
   print(isPalindrome("hello")); // Output: false
 }
+//Find Substrings
+void findSubstrings(String str) {
+  for (int i = 0; i < str.length; i++) {
+    for (int j = i + 1; j <= str.length; j++) {
+      print(str.substring(i, j));
+    }
+  }
+}
+
+void main() {
+  findSubstrings("abc");
+  // Output:
+  // a, ab, abc, b, bc, c
+}
 
