@@ -13,3 +13,15 @@ class RemoveItem extends BillingEvent {
 }
 
 class ClearBill extends BillingEvent {}
+
+// Define States
+abstract class BillingState {}
+
+class BillingInitial extends BillingState {}
+
+class BillingUpdated extends BillingState {
+  final List<Map<String, dynamic>> items;
+  final double total;
+  
+  BillingUpdated({required this.items, required this.total});
+}
