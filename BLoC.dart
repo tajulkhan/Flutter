@@ -53,3 +53,28 @@ class BillingBloc extends Bloc<BillingEvent, BillingState> {
     });
   }
 }
+
+//Use BLoC in UI
+
+BlocBuilder<BillingBloc, BillingState>(
+  builder: (context, state) {
+    if (state is BillingUpdated) {
+      return Column(
+        children: [
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: state.items.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(state.items[index]["item"]),
+                subtitle: Text("\$${state.items[index]["price"]}"),
+              );
+            },
+          ),
+          Text("Total: \$${state.total}", style: TextStyle(fontSize: 20)),
+        ],
+      );
+    }
+    return Text("No items added");
+  },
+);
