@@ -21,3 +21,9 @@ void main() {
   var squared = numbers.map((n) => n * n).toList();
   print(squared); // [1, 4, 9, 16, 25]
 }
+// Filtering with .where()
+void main() {
+  List<int> numbers = [10, 15, 20, 25, 30];
+  var evenNumbers = numbers.where((n) => n.isEven).toList();
+  print(evenNumbers); // [10, 20, 30]
+}
