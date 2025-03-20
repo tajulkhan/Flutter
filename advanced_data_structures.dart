@@ -27,3 +27,11 @@ void main() {
   var evenNumbers = numbers.where((n) => n.isEven).toList();
   print(evenNumbers); // [10, 20, 30]
 }
+
+// 2. Sets, Maps & Hashing Techniques
+void main() {
+  Set<int> uniqueNumbers = {1, 2, 3, 3, 4, 5};
+  uniqueNumbers.add(6);
+  uniqueNumbers.remove(2);
+  print(uniqueNumbers); // {1, 3, 4, 5, 6}
+}
