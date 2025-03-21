@@ -76,3 +76,27 @@ void main() {
   stack.push(20);
   print(stack.pop()); // 20
 }
+
+// Trees & Graphs (DFS & BFS)
+class TreeNode {
+  int value;
+  TreeNode? left, right;
+
+  TreeNode(this.value);
+}
+
+void preOrder(TreeNode? node) {
+  if (node == null) return;
+  print(node.value);
+  preOrder(node.left);
+  preOrder(node.right);
+}
+
+void main() {
+  var root = TreeNode(1);
+  root.left = TreeNode(2);
+  root.right = TreeNode(3);
+  
+  preOrder(root); // 1, 2, 3
+}
+
