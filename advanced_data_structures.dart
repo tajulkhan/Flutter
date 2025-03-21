@@ -61,3 +61,18 @@ void main() {
   print(scores.keys); // [Alice, Bob, Charlie, David]
 }
 
+//Stacks & Queues
+class Stack<T> {
+  List<T> _stack = [];
+
+  void push(T value) => _stack.add(value);
+  T pop() => _stack.removeLast();
+  bool get isEmpty => _stack.isEmpty;
+}
+
+void main() {
+  var stack = Stack<int>();
+  stack.push(10);
+  stack.push(20);
+  print(stack.pop()); // 20
+}
