@@ -84,6 +84,28 @@ class TreeNode {
 
   TreeNode(this.value);
 }
+//Graph Representation
+class Graph {
+  Map<int, List<int>> adjList = {};
+
+  void addEdge(int u, int v) {
+    adjList.putIfAbsent(u, () => []).add(v);
+    adjList.putIfAbsent(v, () => []).add(u);
+  }
+
+  void printGraph() {
+    adjList.forEach((key, value) {
+      print("$key -> $value");
+    });
+  }
+}
+
+void main() {
+  var graph = Graph();
+  graph.addEdge(1, 2);
+  graph.addEdge(1, 3);
+  graph.printGraph();
+}
 
 void preOrder(TreeNode? node) {
   if (node == null) return;
