@@ -48,3 +48,16 @@ void main() {
   print(scores.keys); // [Alice, Bob, Charlie, David]
 }
 
+//Using Maps (Dictionaries)
+void main() {
+  Map<String, int> scores = {
+    "Alice": 90,
+    "Bob": 85,
+    "Charlie": 88
+  };
+
+  scores["David"] = 92; // Add a new key-value pair
+  print(scores["Alice"]); // 90
+  print(scores.keys); // [Alice, Bob, Charlie, David]
+}
+
