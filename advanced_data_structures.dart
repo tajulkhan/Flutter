@@ -203,3 +203,49 @@ void main() {
   }
 }
 
+// Autocomplete Search (Trie)
+class TrieNode {
+  Map<String, TrieNode> children = {};
+  bool isEndOfWord = false;
+}
+
+class AutoComplete {
+  final TrieNode root = TrieNode();
+
+  void insert(String word) {
+    TrieNode node = root;
+    for (var char in word.split("")) {
+      node.children.putIfAbsent(char, () => TrieNode());
+      node = node.children[char]!;
+    }
+    node.isEndOfWord = true;
+  }
+
+  List<String> search(String prefix) {
+    TrieNode? node = root;
+    for (var char in prefix.split("")) {
+      if (!node!.children.containsKey(char)) return [];
+      node = node.children[char];
+    }
+    return _getWordsFromNode(node!, prefix);
+  }
+
+  List<String> _getWordsFromNode(TrieNode node, String prefix) {
+    List<String> words = [];
+    if (node.isEndOfWord) words.add(prefix);
+    for (var entry in node.children.entries) {
+      words.addAll(_getWordsFromNode(entry.value, prefix + entry.key));
+    }
+    return words;
+  }
+}
+
+void main() {
+  AutoComplete autoComplete = AutoComplete();
+  autoComplete.insert("apple");
+  autoComplete.insert("app");
+  autoComplete.insert("apricot");
+  autoComplete.insert("banana");
+
+  print(autoComplete.search("ap")); // Output: ["apple", "app", "apricot"]
+}
