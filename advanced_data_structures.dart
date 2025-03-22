@@ -133,3 +133,34 @@ int fib(int n) {
 void main() {
   print(fib(10)); // 55
 }
+// URL Shortener (Hashing & Maps)
+import 'dart:math';
+
+class URLShortener {
+  final Map<String, String> urlMap = {};
+  final String base = "https://short.ly/";
+  final Random random = Random();
+
+  String generateShortCode() {
+    const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    return List.generate(6, (_) => chars[random.nextInt(chars.length)]).join();
+  }
+
+  String shortenURL(String longURL) {
+    String shortCode = generateShortCode();
+    urlMap[shortCode] = longURL;
+    return base + shortCode;
+  }
+
+  String? getOriginalURL(String shortURL) {
+    String shortCode = shortURL.replaceAll(base, "");
+    return urlMap[shortCode];
+  }
+}
+
+void main() {
+  URLShortener shortener = URLShortener();
+  String shortURL = shortener.shortenURL("https://www.example.com/some-long-url");
+  print("Short URL: $shortURL");
+  print("Original URL: ${shortener.getOriginalURL(shortURL)}");
+}
