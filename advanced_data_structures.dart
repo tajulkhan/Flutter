@@ -249,3 +249,17 @@ void main() {
 
   print(autoComplete.search("ap")); // Output: ["apple", "app", "apricot"]
 }
+
+// Stock Price Prediction (Sliding Window)
+List<int> maxStockPrices(List<int> prices, int k) {
+  List<int> result = [];
+  for (int i = 0; i <= prices.length - k; i++) {
+    result.add(prices.sublist(i, i + k).reduce((a, b) => a > b ? a : b));
+  }
+  return result;
+}
+
+void main() {
+  List<int> prices = [1, 3, 2, 5, 8, 7, 10];
+  print(maxStockPrices(prices, 3)); // Output: [3, 5, 8, 8, 10]
+}
