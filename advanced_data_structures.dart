@@ -263,3 +263,35 @@ void main() {
   List<int> prices = [1, 3, 2, 5, 8, 7, 10];
   print(maxStockPrices(prices, 3)); // Output: [3, 5, 8, 8, 10]
 }
+
+// Flight Ticket Price Tracker (Heap/Priority Queue)
+import 'dart:collection';
+
+class FlightTracker {
+  final PriorityQueue<int> minHeap;
+  final int k;
+
+  FlightTracker(this.k) : minHeap = PriorityQueue<int>((a, b) => a.compareTo(b));
+
+  void addPrice(int price) {
+    minHeap.add(price);
+    if (minHeap.length > k) {
+      minHeap.removeLast();
+    }
+  }
+
+  List<int> getCheapestFlights() {
+    return minHeap.toList();
+  }
+}
+
+void main() {
+  FlightTracker tracker = FlightTracker(3);
+  tracker.addPrice(400);
+  tracker.addPrice(200);
+  tracker.addPrice(350);
+  tracker.addPrice(100);
+  tracker.addPrice(150);
+
+  print(tracker.getCheapestFlights()); // Output: [100, 150, 200]
+}
