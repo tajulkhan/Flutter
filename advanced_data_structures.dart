@@ -164,3 +164,42 @@ void main() {
   print("Short URL: $shortURL");
   print("Original URL: ${shortener.getOriginalURL(shortURL)}");
 }
+ // Rate Limiter (Queue & Time Management)
+import 'dart:collection';
+import 'dart:async';
+
+class RateLimiter {
+  final int limit;
+  final Duration window;
+  final Map<String, Queue<DateTime>> userRequests = {};
+
+  RateLimiter(this.limit, this.window);
+
+  bool allowRequest(String userID) {
+    DateTime now = DateTime.now();
+    userRequests.putIfAbsent(userID, () => Queue<DateTime>());
+    
+    Queue<DateTime> timestamps = userRequests[userID]!;
+    while (timestamps.isNotEmpty && now.difference(timestamps.first) > window) {
+      timestamps.removeFirst();
+    }
+    
+    if (timestamps.length < limit) {
+      timestamps.add(now);
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+void main() {
+  RateLimiter limiter = RateLimiter(5, Duration(seconds: 10));
+  
+  for (int i = 0; i < 7; i++) {
+    bool allowed = limiter.allowRequest("user123");
+    print("Request ${i + 1}: ${allowed ? "Allowed" : "Blocked"}");
+    sleep(Duration(seconds: 2));
+  }
+}
+
