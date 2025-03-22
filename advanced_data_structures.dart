@@ -121,4 +121,15 @@ void main() {
   
   preOrder(root); // 1, 2, 3
 }
+//Dynamic Programming (Memoization & Tabulation)
+Map<int, int> memo = {};
 
+int fib(int n) {
+  if (n <= 1) return n;
+  if (memo.containsKey(n)) return memo[n]!;
+  return memo[n] = fib(n - 1) + fib(n - 2);
+}
+
+void main() {
+  print(fib(10)); // 55
+}
