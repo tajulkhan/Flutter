@@ -339,3 +339,46 @@ void main() {
   });
 }
 
+// E-Commerce Shopping Cart (OOP & Maps)
+class Product {
+  String name;
+  double price;
+
+  Product(this.name, this.price);
+}
+
+class ShoppingCart {
+  final Map<Product, int> _items = {};
+
+  void addToCart(Product product, int quantity) {
+    _items[product] = (_items[product] ?? 0) + quantity;
+  }
+
+  void removeFromCart(Product product) {
+    _items.remove(product);
+  }
+
+  double getTotalPrice() {
+    return _items.entries
+        .map((entry) => entry.key.price * entry.value)
+        .reduce((a, b) => a + b);
+  }
+
+  void displayCart() {
+    _items.forEach((product, quantity) {
+      print("${product.name} x $quantity - \$${product.price * quantity}");
+    });
+    print("Total: \$${getTotalPrice()}");
+  }
+}
+
+void main() {
+  Product apple = Product("Apple", 2.5);
+  Product banana = Product("Banana", 1.2);
+  
+  ShoppingCart cart = ShoppingCart();
+  cart.addToCart(apple, 3);
+  cart.addToCart(banana, 2);
+  
+  cart.displayCart();
+}
