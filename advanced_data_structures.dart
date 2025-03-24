@@ -295,3 +295,27 @@ void main() {
 
   print(tracker.getCheapestFlights()); // Output: [100, 150, 200]
 }
+
+// Real-Time Chat System (WebSockets)
+import 'dart:io';
+
+void startChatServer() async {
+  final server = await HttpServer.bind(InternetAddress.anyIPv4, 4040);
+  print('Chat server started on port 4040');
+
+  await for (var request in server) {
+    if (WebSocketTransformer.isUpgradeRequest(request)) {
+      WebSocket socket = await WebSocketTransformer.upgrade(request);
+      print('Client connected');
+
+      socket.listen((message) {
+        print('Received: $message');
+        socket.add('Echo: $message'); // Sending back message
+      });
+    }
+  }
+}
+
+void main() {
+  startChatServer();
+}
