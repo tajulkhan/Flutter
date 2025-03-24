@@ -382,3 +382,27 @@ void main() {
   
   cart.displayCart();
 }
+
+// AI-Based Sentiment Analysis (String Processing)
+class SentimentAnalyzer {
+  final List<String> positiveWords = ["good", "great", "amazing", "happy", "love"];
+  final List<String> negativeWords = ["bad", "terrible", "sad", "hate", "awful"];
+
+  String analyze(String text) {
+    int score = 0;
+    for (var word in text.toLowerCase().split(" ")) {
+      if (positiveWords.contains(word)) score++;
+      if (negativeWords.contains(word)) score--;
+    }
+
+    if (score > 0) return "Positive 😊";
+    if (score < 0) return "Negative 😞";
+    return "Neutral 😐";
+  }
+}
+
+void main() {
+  SentimentAnalyzer analyzer = SentimentAnalyzer();
+  print(analyzer.analyze("I love this product, it's amazing!")); // Positive
+  print(analyzer.analyze("This is a terrible experience.")); // Negative
+}
