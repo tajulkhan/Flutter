@@ -406,3 +406,20 @@ void main() {
   print(analyzer.analyze("I love this product, it's amazing!")); // Positive
   print(analyzer.analyze("This is a terrible experience.")); // Negative
 }
+
+// Image Compression System (File Handling)
+import 'dart:io';
+import 'package:image/image.dart';
+
+Future<void> compressImage(File imageFile) async {
+  final image = decodeImage(imageFile.readAsBytesSync())!;
+  final compressed = copyResize(image, width: 300);
+
+  File('compressed.jpg').writeAsBytesSync(encodeJpg(compressed, quality: 85));
+  print("Image compressed successfully!");
+}
+
+void main() async {
+  File imageFile = File('sample.jpg');
+  await compressImage(imageFile);
+}
