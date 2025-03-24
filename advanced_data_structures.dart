@@ -319,3 +319,23 @@ void startChatServer() async {
 void main() {
   startChatServer();
 }
+// Task Scheduler (Asynchronous Execution)
+import 'dart:async';
+
+class TaskScheduler {
+  void scheduleTask(Duration delay, Function task) {
+    Timer(delay, () {
+      task();
+    });
+  }
+}
+
+void main() {
+  TaskScheduler scheduler = TaskScheduler();
+  print("Task scheduled in 3 seconds...");
+  
+  scheduler.scheduleTask(Duration(seconds: 3), () {
+    print("Task executed!");
+  });
+}
+
