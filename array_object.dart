@@ -16,5 +16,15 @@ List<int> findDuplicates(List<int> numbers) {
 void main() {
   List<int> numbers = [1, 2, 3, 4, 5, 2, 3, 6, 7, 8, 8, 9];
   print(findDuplicates(numbers)); // Output: [2, 3, 8]
+
+// Remove Duplicates from a List
+  List<int> removeDuplicates(List<int> numbers) {
+  return numbers.toSet().toList();
 }
+
+void main() {
+  List<int> numbers = [10, 20, 10, 30, 40, 30, 50];
+  print(removeDuplicates(numbers)); // Output: [10, 20, 30, 40, 50]
+}
+
 
