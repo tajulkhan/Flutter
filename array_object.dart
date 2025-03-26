@@ -47,6 +47,28 @@ void main() {
     print("${student.name}: ${student.age}");
   }
 }
+// Filter Objects in a List
+  class Product {
+  String name;
+  double price;
+
+  Product(this.name, this.price);
+}
+
+void main() {
+  List<Product> products = [
+    Product("Laptop", 1000),
+    Product("Mouse", 25),
+    Product("Keyboard", 70),
+    Product("Monitor", 200),
+  ];
+
+  List<Product> expensiveProducts = products.where((p) => p.price > 50).toList();
+
+  for (var product in expensiveProducts) {
+    print("${product.name}: \$${product.price}");
+  }
+}
 
 
 
