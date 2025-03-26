@@ -26,5 +26,27 @@ void main() {
   List<int> numbers = [10, 20, 10, 30, 40, 30, 50];
   print(removeDuplicates(numbers)); // Output: [10, 20, 30, 40, 50]
 }
+  // Sort a List of Objects
+  class Student {
+  String name;
+  int age;
+
+  Student(this.name, this.age);
+}
+
+void main() {
+  List<Student> students = [
+    Student("Alice", 22),
+    Student("Bob", 18),
+    Student("Charlie", 25)
+  ];
+
+  students.sort((a, b) => a.age.compareTo(b.age)); // Sorting by age
+
+  for (var student in students) {
+    print("${student.name}: ${student.age}");
+  }
+}
+
 
 
