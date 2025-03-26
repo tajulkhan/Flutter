@@ -69,6 +69,30 @@ void main() {
     print("${product.name}: \$${product.price}");
   }
 }
+// Convert List of Maps to Objects
+  class User {
+  String name;
+  int age;
+
+  User({required this.name, required this.age});
+
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(name: json['name'], age: json['age']);
+  }
+}
+
+void main() {
+  List<Map<String, dynamic>> jsonData = [
+    {"name": "Alice", "age": 30},
+    {"name": "Bob", "age": 25}
+  ];
+
+  List<User> users = jsonData.map((data) => User.fromJson(data)).toList();
+
+  for (var user in users) {
+    print("${user.name}: ${user.age}");
+  }
+}
 
 
 
