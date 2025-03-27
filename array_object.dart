@@ -145,6 +145,17 @@ void main() {
   List<int> numbers = [4, 5, 6, 7, 5, 4, 4, 6, 7, 4, 5];
   print(mostFrequentElement(numbers)); // Output: 4
 }
+// Merge Two Sorted Lists
+  List<int> mergeSortedLists(List<int> list1, List<int> list2) {
+  List<int> merged = [...list1, ...list2]..sort();
+  return merged;
+}
 
+void main() {
+  List<int> list1 = [1, 3, 5, 7];
+  List<int> list2 = [2, 4, 6, 8];
+
+  print(mergeSortedLists(list1, list2)); // Output: [1, 2, 3, 4, 5, 6, 7, 8]
+}
 
 
