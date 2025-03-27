@@ -69,7 +69,7 @@ void main() {
     print("${product.name}: \$${product.price}");
   }
 }
-// Convert List of Maps to Objects
+// C
   class User {
   String name;
   int age;
@@ -92,6 +92,37 @@ void main() {
   for (var user in users) {
     print("${user.name}: ${user.age}");
   }
+}
+ // Group Objects by Property
+  class Employee {
+  String name;
+  String department;
+
+  Employee(this.name, this.department);
+}
+
+void main() {
+  List<Employee> employees = [
+    Employee("Alice", "HR"),
+    Employee("Bob", "Engineering"),
+    Employee("Charlie", "HR"),
+    Employee("David", "Engineering"),
+    Employee("Eve", "Marketing")
+  ];
+
+  Map<String, List<Employee>> groupedByDept = {};
+
+  for (var emp in employees) {
+    groupedByDept.putIfAbsent(emp.department, () => []);
+    groupedByDept[emp.department]!.add(emp);
+  }
+
+  groupedByDept.forEach((dept, empList) {
+    print("$dept:");
+    for (var emp in empList) {
+      print(" - ${emp.name}");
+    }
+  });
 }
 
 
