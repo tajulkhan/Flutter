@@ -124,6 +124,27 @@ void main() {
     }
   });
 }
+// Find the Most Frequent Element
+  int mostFrequentElement(List<int> numbers) {
+  Map<int, int> countMap = {};
+  int maxCount = 0;
+  int mostFrequent = numbers[0];
+
+  for (var num in numbers) {
+    countMap[num] = (countMap[num] ?? 0) + 1;
+    if (countMap[num]! > maxCount) {
+      maxCount = countMap[num]!;
+      mostFrequent = num;
+    }
+  }
+  
+  return mostFrequent;
+}
+
+void main() {
+  List<int> numbers = [4, 5, 6, 7, 5, 4, 4, 6, 7, 4, 5];
+  print(mostFrequentElement(numbers)); // Output: 4
+}
 
 
 
