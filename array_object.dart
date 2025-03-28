@@ -177,3 +177,20 @@ void main() {
 
   print(jsonEncode(users));
 }
+
+// Sorting Products by Price (Descending)
+void main() {
+  List<Map<String, dynamic>> products = [
+    {"name": "Laptop", "price": 1000},
+    {"name": "Mouse", "price": 25},
+    {"name": "Keyboard", "price": 70},
+    {"name": "Monitor", "price": 200}
+  ];
+
+  // Sorting by price (Descending)
+  products.sort((a, b) => b["price"].compareTo(a["price"]));
+
+  for (var product in products) {
+    print("${product['name']} - \$${product['price']}");
+  }
+}
