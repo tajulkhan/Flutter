@@ -158,4 +158,22 @@ void main() {
   print(mergeSortedLists(list1, list2)); // Output: [1, 2, 3, 4, 5, 6, 7, 8]
 }
 
+// Sorting a List of Users by Age
+import 'dart:convert';
 
+void main() {
+  String jsonData = '''
+  [
+    {"name": "Alice", "age": 30},
+    {"name": "Bob", "age": 25},
+    {"name": "Charlie", "age": 35}
+  ]
+  ''';
+
+  List<dynamic> users = jsonDecode(jsonData);
+
+  // Sorting by age
+  users.sort((a, b) => a["age"].compareTo(b["age"]));
+
+  print(jsonEncode(users));
+}
