@@ -194,3 +194,25 @@ void main() {
     print("${product['name']} - \$${product['price']}");
   }
 }
+
+// Sorting a List of Employees by Department, then by Name
+void main() {
+  List<Map<String, dynamic>> employees = [
+    {"name": "Alice", "department": "HR"},
+    {"name": "Bob", "department": "Engineering"},
+    {"name": "Charlie", "department": "HR"},
+    {"name": "David", "department": "Engineering"},
+    {"name": "Eve", "department": "Marketing"}
+  ];
+
+  // First sort by name, then by department
+  employees.sort((a, b) {
+    int deptCompare = a["department"].compareTo(b["department"]);
+    if (deptCompare != 0) return deptCompare;
+    return a["name"].compareTo(b["name"]);
+  });
+
+  for (var emp in employees) {
+    print("${emp['department']} - ${emp['name']}");
+  }
+}
