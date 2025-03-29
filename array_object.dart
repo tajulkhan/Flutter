@@ -331,3 +331,25 @@ void main() {
   print(filteredUsers);
   // Output: [{name: Charlie, age: 35}]
 }
+
+
+// Search Products by Name (Case-Insensitive)
+void main() {
+  List<Map<String, dynamic>> products = [
+    {"name": "Laptop", "price": 1000},
+    {"name": "Mouse", "price": 25},
+    {"name": "Keyboard", "price": 70},
+    {"name": "Monitor", "price": 200}
+  ];
+
+  // Function to search products (case-insensitive)
+  List<Map<String, dynamic>> searchProduct(String keyword) {
+    return products
+        .where((product) => product["name"]
+            .toLowerCase()
+            .contains(keyword.toLowerCase()))
+        .toList();
+  }
+
+  print(searchProduct("mouse")); // Output: [{name: Mouse, price: 25}]
+}
