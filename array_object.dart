@@ -256,4 +256,38 @@ void main() {
   for (var book in books) {
     print("${book['title']} - Rating: ${book['rating']}, Reviews: ${book['reviews']}");
   }
+}import 'dart:convert';
+
+class Student {
+  String name;
+  int score;
+
+  Student({required this.name, required this.score});
+
+  factory Student.fromJson(Map<String, dynamic> json) {
+    return Student(name: json["name"], score: json["score"]);
+  }
 }
+
+void main() {
+  String jsonData = '''
+  [
+    {"name": "Alice", "score": 85},
+    {"name": "Bob", "score": 92},
+    {"name": "Charlie", "score": 78}
+  ]
+  ''';
+
+  List<dynamic> studentsData = jsonDecode(jsonData);
+  List<Student> students = studentsData.map((s) => Student.fromJson(s)).toList();
+
+  // Sorting students by score (highest first)
+  students.sort((a, b) => b.score.compareTo(a.score));
+
+  for (var student in students) {
+    print("${student.name} - Score: ${student.score}");
+  }
+}
+
+  // Sorting Student Scores (Using Classes & JSON)
+  
