@@ -291,3 +291,27 @@ void main() {
 
   // Sorting Student Scores (Using Classes & JSON)
   
+//  Searching & Filtering JSON Data in Dart
+
+// Search for a User by Name
+import 'dart:convert';
+
+void main() {
+  String jsonData = '''
+  [
+    {"name": "Alice", "age": 30},
+    {"name": "Bob", "age": 25},
+    {"name": "Charlie", "age": 35}
+  ]
+  ''';
+
+  List<dynamic> users = jsonDecode(jsonData);
+
+  // Function to search user by name
+  Map<String, dynamic>? searchUser(String name) {
+    return users.firstWhere((user) => user["name"] == name, orElse: () => {});
+  }
+
+  print(searchUser("Bob")); // Output: {name: Bob, age: 25}
+  print(searchUser("David")); // Output: {}
+}
