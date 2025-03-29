@@ -216,3 +216,23 @@ void main() {
     print("${emp['department']} - ${emp['name']}");
   }
 }
+
+  // Sorting Nested JSON (Orders by Order Date)
+  import 'dart:convert';
+
+void main() {
+  String jsonData = '''
+  [
+    {"orderId": 101, "date": "2024-02-01"},
+    {"orderId": 102, "date": "2024-01-15"},
+    {"orderId": 103, "date": "2024-03-10"}
+  ]
+  ''';
+
+  List<dynamic> orders = jsonDecode(jsonData);
+
+  // Sorting by date (latest first)
+  orders.sort((a, b) => DateTime.parse(b["date"]).compareTo(DateTime.parse(a["date"])));
+
+  print(jsonEncode(orders));
+}
