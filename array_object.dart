@@ -236,3 +236,24 @@ void main() {
 
   print(jsonEncode(orders));
 }
+
+// Sorting Books by Ratings & Reviews
+  void main() {
+  List<Map<String, dynamic>> books = [
+    {"title": "Book A", "rating": 4.5, "reviews": 150},
+    {"title": "Book B", "rating": 4.8, "reviews": 80},
+    {"title": "Book C", "rating": 4.5, "reviews": 200},
+    {"title": "Book D", "rating": 4.9, "reviews": 120}
+  ];
+
+  // Sorting by rating first, then by reviews if ratings are the same
+  books.sort((a, b) {
+    int ratingCompare = b["rating"].compareTo(a["rating"]);
+    if (ratingCompare != 0) return ratingCompare;
+    return b["reviews"].compareTo(a["reviews"]);
+  });
+
+  for (var book in books) {
+    print("${book['title']} - Rating: ${book['rating']}, Reviews: ${book['reviews']}");
+  }
+}
