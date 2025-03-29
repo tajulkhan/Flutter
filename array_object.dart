@@ -315,3 +315,19 @@ void main() {
   print(searchUser("Bob")); // Output: {name: Bob, age: 25}
   print(searchUser("David")); // Output: {}
 }
+
+// Filter Users Above a Certain Age
+void main() {
+  List<Map<String, dynamic>> users = [
+    {"name": "Alice", "age": 30},
+    {"name": "Bob", "age": 25},
+    {"name": "Charlie", "age": 35}
+  ];
+
+  // Filtering users older than 30
+  List<Map<String, dynamic>> filteredUsers =
+      users.where((user) => user["age"] > 30).toList();
+
+  print(filteredUsers);
+  // Output: [{name: Charlie, age: 35}]
+}
