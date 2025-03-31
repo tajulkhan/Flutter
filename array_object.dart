@@ -396,3 +396,24 @@ void main() {
 
   print(jsonEncode(filteredOrders));
 }
+
+// Find Employees in a Specific Department
+void main() {
+  List<Map<String, dynamic>> employees = [
+    {"name": "Alice", "department": "HR"},
+    {"name": "Bob", "department": "Engineering"},
+    {"name": "Charlie", "department": "HR"},
+    {"name": "David", "department": "Engineering"},
+    {"name": "Eve", "department": "Marketing"}
+  ];
+
+  // Function to filter employees by department
+  List<Map<String, dynamic>> filterByDepartment(String department) {
+    return employees
+        .where((emp) => emp["department"] == department)
+        .toList();
+  }
+
+  print(filterByDepartment("HR"));
+  // Output: [{name: Alice, department: HR}, {name: Charlie, department: HR}]
+}
