@@ -353,3 +353,20 @@ void main() {
 
   print(searchProduct("mouse")); // Output: [{name: Mouse, price: 25}]
 }
+
+// Filter Books by Rating Range
+void main() {
+  List<Map<String, dynamic>> books = [
+    {"title": "Book A", "rating": 4.5},
+    {"title": "Book B", "rating": 3.9},
+    {"title": "Book C", "rating": 4.8},
+    {"title": "Book D", "rating": 4.2}
+  ];
+
+  // Filtering books with rating >= 4.5
+  List<Map<String, dynamic>> filteredBooks =
+      books.where((book) => book["rating"] >= 4.5).toList();
+
+  print(filteredBooks);
+  // Output: [{title: Book A, rating: 4.5}, {title: Book C, rating: 4.8}]
+}
