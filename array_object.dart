@@ -417,3 +417,24 @@ void main() {
   print(filterByDepartment("HR"));
   // Output: [{name: Alice, department: HR}, {name: Charlie, department: HR}]
 }
+
+
+// Search for a Student by Partial Name
+void main() {
+  List<Map<String, dynamic>> students = [
+    {"name": "Alice Johnson", "age": 22},
+    {"name": "Bob Smith", "age": 20},
+    {"name": "Charlie Brown", "age": 23}
+  ];
+
+  // Function to search students by partial name (case-insensitive)
+  List<Map<String, dynamic>> searchStudent(String query) {
+    return students
+        .where((student) =>
+            student["name"].toLowerCase().contains(query.toLowerCase()))
+        .toList();
+  }
+
+  print(searchStudent("brown"));
+  // Output: [{name: Charlie Brown, age: 23}]
+}
