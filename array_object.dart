@@ -370,3 +370,29 @@ void main() {
   print(filteredBooks);
   // Output: [{title: Book A, rating: 4.5}, {title: Book C, rating: 4.8}]
 }
+
+// Find Orders in a Specific Date Range
+import 'dart:convert';
+
+void main() {
+  String jsonData = '''
+  [
+    {"orderId": 101, "date": "2024-02-01"},
+    {"orderId": 102, "date": "2024-01-15"},
+    {"orderId": 103, "date": "2024-03-10"}
+  ]
+  ''';
+
+  List<dynamic> orders = jsonDecode(jsonData);
+
+  DateTime startDate = DateTime.parse("2024-01-20");
+  DateTime endDate = DateTime.parse("2024-03-01");
+
+  // Filtering orders within date range
+  List<dynamic> filteredOrders = orders.where((order) {
+    DateTime orderDate = DateTime.parse(order["date"]);
+    return orderDate.isAfter(startDate) && orderDate.isBefore(endDate);
+  }).toList();
+
+  print(jsonEncode(filteredOrders));
+}
