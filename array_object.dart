@@ -438,3 +438,68 @@ void main() {
   print(searchStudent("brown"));
   // Output: [{name: Charlie Brown, age: 23}]
 }
+
+  // Paginated Product Search & Filtering
+  class Product {
+  String name;
+  double price;
+  String category;
+
+  Product({required this.name, required this.price, required this.category});
+}
+
+// Sample product data
+List<Product> products = [
+  Product(name: "Laptop", price: 1200, category: "Electronics"),
+  Product(name: "Mouse", price: 20, category: "Accessories"),
+  Product(name: "Keyboard", price: 50, category: "Accessories"),
+  Product(name: "Monitor", price: 200, category: "Electronics"),
+  Product(name: "Headphones", price: 80, category: "Audio"),
+  Product(name: "Smartphone", price: 999, category: "Electronics"),
+  Product(name: "Desk", price: 150, category: "Furniture"),
+  Product(name: "Chair", price: 100, category: "Furniture"),
+  Product(name: "USB Cable", price: 10, category: "Accessories"),
+  Product(name: "Power Bank", price: 40, category: "Accessories"),
+];
+
+/// 🔍 **Function to Search, Filter, and Paginate**
+List<Product> searchFilterPaginate({
+  required String searchQuery,
+  required double minPrice,
+  required double maxPrice,
+  required int page,
+  required int pageSize,
+}) {
+  // Step 1: Search (case-insensitive)
+  List<Product> filteredList = products.where((product) {
+    return product.name.toLowerCase().contains(searchQuery.toLowerCase());
+  }).toList();
+
+  // Step 2: Filter by price range
+  filteredList = filteredList.where((product) {
+    return product.price >= minPrice && product.price <= maxPrice;
+  }).toList();
+
+  // Step 3: Paginate results
+  int startIndex = (page - 1) * pageSize;
+  int endIndex = startIndex + pageSize;
+  if (startIndex >= filteredList.length) return [];
+
+  return filteredList.sublist(startIndex, endIndex > filteredList.length ? filteredList.length : endIndex);
+}
+
+/// 🔥 **Testing the Function**
+void main() {
+  List<Product> result = searchFilterPaginate(
+    searchQuery: "a", // Searching for products containing "a"
+    minPrice: 20, 
+    maxPrice: 500, 
+    page: 1, 
+    pageSize: 5
+  );
+
+  // Displaying results
+  for (var product in result) {
+    print("${product.name} - \$${product.price}");
+  }
+}
