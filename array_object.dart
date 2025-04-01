@@ -503,3 +503,53 @@ void main() {
     print("${product.name} - \$${product.price}");
   }
 }
+// Advanced Pagination - Returning Total Pages
+  Map<String, dynamic> searchFilterPaginateWithTotalPages({
+  required String searchQuery,
+  required double minPrice,
+  required double maxPrice,
+  required int page,
+  required int pageSize,
+}) {
+  // Step 1: Search (case-insensitive)
+  List<Product> filteredList = products.where((product) {
+    return product.name.toLowerCase().contains(searchQuery.toLowerCase());
+  }).toList();
+
+  // Step 2: Filter by price range
+  filteredList = filteredList.where((product) {
+    return product.price >= minPrice && product.price <= maxPrice;
+  }).toList();
+
+  // Step 3: Calculate total pages
+  int totalPages = (filteredList.length / pageSize).ceil();
+
+  // Step 4: Paginate results
+  int startIndex = (page - 1) * pageSize;
+  int endIndex = startIndex + pageSize;
+  if (startIndex >= filteredList.length) return {"products": [], "totalPages": totalPages};
+
+  return {
+    "products": filteredList.sublist(startIndex, endIndex > filteredList.length ? filteredList.length : endIndex),
+    "totalPages": totalPages
+  };
+}
+
+/// 🔥 **Testing the Improved Function**
+void main() {
+  var result = searchFilterPaginateWithTotalPages(
+    searchQuery: "a",
+    minPrice: 20,
+    maxPrice: 500,
+    page: 1,
+    pageSize: 5
+  );
+
+  // Display total pages
+  print("Total Pages: ${result["totalPages"]}");
+
+  // Display products
+  for (var product in result["products"]) {
+    print("${product.name} - \$${product.price}");
+  }
+}
