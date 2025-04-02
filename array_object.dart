@@ -617,3 +617,36 @@ void main() {
   print("Highest Order: \$${maxOrder}");
   print("Lowest Order: \$${minOrder}");
 }
+// Combining Sorting, Filtering, Grouping & Aggregation
+void main() {
+  List<Map<String, dynamic>> employees = [
+    {"name": "Alice", "salary": 5000, "department": "IT"},
+    {"name": "Bob", "salary": 4000, "department": "HR"},
+    {"name": "Charlie", "salary": 6000, "department": "IT"},
+    {"name": "David", "salary": 4500, "department": "Finance"},
+    {"name": "Eve", "salary": 5500, "department": "Finance"},
+    {"name": "Frank", "salary": 7000, "department": "IT"}
+  ];
+
+  // Sort employees by salary (High to Low)
+  employees.sort((a, b) => b["salary"].compareTo(a["salary"]));
+
+  // Get top 3 highest paid employees
+  List<Map<String, dynamic>> topEmployees = employees.take(3).toList();
+
+  // Grouping salaries by department
+  Map<String, List<int>> departmentSalaries = {};
+  for (var emp in employees) {
+    departmentSalaries.putIfAbsent(emp["department"], () => []);
+    departmentSalaries[emp["department"]]!.add(emp["salary"]);
+  }
+
+  // Calculating average salary per department
+  Map<String, double> avgSalaryByDept = {};
+  departmentSalaries.forEach((dept, salaries) {
+    avgSalaryByDept[dept] = salaries.reduce((a, b) => a + b) / salaries.length;
+  });
+
+  print("Top 3 Employees: $topEmployees");
+  print("Average Salary by Department: $avgSalaryByDept");
+}
