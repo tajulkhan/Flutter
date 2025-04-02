@@ -650,3 +650,29 @@ void main() {
   print("Top 3 Employees: $topEmployees");
   print("Average Salary by Department: $avgSalaryByDept");
 }
+
+// Merging Two JSON Lists by a Common Key
+void main() {
+  List<Map<String, dynamic>> users = [
+    {"userId": 1, "name": "Alice"},
+    {"userId": 2, "name": "Bob"},
+    {"userId": 3, "name": "Charlie"}
+  ];
+
+  List<Map<String, dynamic>> orders = [
+    {"orderId": 101, "userId": 1, "amount": 200},
+    {"orderId": 102, "userId": 2, "amount": 150},
+    {"orderId": 103, "userId": 1, "amount": 300}
+  ];
+
+  List<Map<String, dynamic>> mergedData = [];
+
+  for (var order in orders) {
+    var user = users.firstWhere((u) => u["userId"] == order["userId"], orElse: () => {});
+    if (user.isNotEmpty) {
+      mergedData.add({...order, "userName": user["name"]});
+    }
+  }
+
+  print(mergedData);
+}
