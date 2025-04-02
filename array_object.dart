@@ -592,3 +592,28 @@ void main() {
 
   print(grouped);
 }
+
+// Aggregating JSON Data (Sum, Average, Max, Min)
+void main() {
+  List<Map<String, dynamic>> orders = [
+    {"orderId": 1, "amount": 100},
+    {"orderId": 2, "amount": 250},
+    {"orderId": 3, "amount": 50},
+    {"orderId": 4, "amount": 300}
+  ];
+
+  // Total sales
+  double totalSales = orders.fold(0, (sum, order) => sum + order["amount"]);
+
+  // Average order value
+  double avgOrderValue = totalSales / orders.length;
+
+  // Highest & lowest order value
+  double maxOrder = orders.map((order) => order["amount"]).reduce((a, b) => a > b ? a : b);
+  double minOrder = orders.map((order) => order["amount"]).reduce((a, b) => a < b ? a : b);
+
+  print("Total Sales: \$${totalSales}");
+  print("Average Order Value: \$${avgOrderValue.toStringAsFixed(2)}");
+  print("Highest Order: \$${maxOrder}");
+  print("Lowest Order: \$${minOrder}");
+}
