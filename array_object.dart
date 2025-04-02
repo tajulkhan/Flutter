@@ -553,3 +553,20 @@ void main() {
     print("${product.name} - \$${product.price}");
   }
 }
+// Sorting JSON Data (Ascending & Descending Order)
+void main() {
+  List<Map<String, dynamic>> products = [
+    {"name": "Laptop", "price": 1200},
+    {"name": "Mouse", "price": 20},
+    {"name": "Keyboard", "price": 50},
+    {"name": "Monitor", "price": 200}
+  ];
+
+  // Sorting in ascending order (Low to High)
+  products.sort((a, b) => a["price"].compareTo(b["price"]));
+  print("Ascending Order: $products");
+
+  // Sorting in descending order (High to Low)
+  products.sort((a, b) => b["price"].compareTo(a["price"]));
+  print("Descending Order: $products");
+}
