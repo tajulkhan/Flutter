@@ -570,3 +570,25 @@ void main() {
   products.sort((a, b) => b["price"].compareTo(a["price"]));
   print("Descending Order: $products");
 }
+
+// Grouping JSON Data by Category
+void main() {
+  List<Map<String, dynamic>> transactions = [
+    {"name": "Burger", "amount": 5, "category": "Food"},
+    {"name": "Laptop", "amount": 1200, "category": "Electronics"},
+    {"name": "Bus Ticket", "amount": 2, "category": "Transport"},
+    {"name": "Pizza", "amount": 10, "category": "Food"},
+    {"name": "Phone", "amount": 800, "category": "Electronics"}
+  ];
+
+  // Grouping by category
+  Map<String, List<Map<String, dynamic>>> grouped = {};
+
+  for (var transaction in transactions) {
+    String category = transaction["category"];
+    grouped.putIfAbsent(category, () => []);
+    grouped[category]!.add(transaction);
+  }
+
+  print(grouped);
+}
