@@ -34,4 +34,21 @@ void main() {
   String jsonOutput = json.encode(product.toJson());
   print(jsonOutput); // Output: {"name":"Laptop","price":1200}
 }
+// Use Code Generation for Large JSON Models
+  import 'package:json_annotation/json_annotation.dart';
+
+part 'product.g.dart';
+
+@JsonSerializable()
+class Product {
+  final String name;
+  final double price;
+
+  Product({required this.name, required this.price});
+
+  // Auto-generated functions
+  factory Product.fromJson(Map<String, dynamic> json) => _$ProductFromJson(json);
+  Map<String, dynamic> toJson() => _$ProductToJson(this);
+}
+
 
