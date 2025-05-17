@@ -95,3 +95,11 @@ void main()
     print("Calling function with default valued parameter");
     gfg3(01);
 }
+// Lambda Function in Dart
+void gfg() => print("Welcome to GeeksforGeeks");
+
+void main()
+{
+    // Calling Lambda function
+    gfg(); 
+}
