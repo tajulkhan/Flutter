@@ -44,3 +44,16 @@ void main()
     // Printing output
     print(output);
 }
+
+// Function without parameter and return value. 
+void GFG()
+{
+    // Creating function
+    print("Welcome to GeeksForGeeks");
+}
+
+void main()
+{
+    // Calling the function
+    GFG();
+}
