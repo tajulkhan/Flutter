@@ -16,3 +16,11 @@ void main() {
     };
     print(multiply(5, 3)); // Output: 15
 }
+// Using an Anonymous Function as a Callback
+void performOperation(int a, int b, Function operation) {
+    print('Result: ${operation(a, b)}');
+}
+void main() {
+    // Passing an anonymous function
+    performOperation(4, 2, (a, b) => a + b); 
+}
