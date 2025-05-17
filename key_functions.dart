@@ -24,3 +24,23 @@ void main() {
     // Passing an anonymous function
     performOperation(4, 2, (a, b) => a + b); 
 }
+
+ // Complete function in Dart 
+
+int add(int a, int b)
+{
+    // Creating function
+    int result = a + b;
+    
+    // returning value result
+    return result;
+}
+
+void main()
+{
+    // Calling the function
+    var output = add(10, 20);
+
+    // Printing output
+    print(output);
+}
