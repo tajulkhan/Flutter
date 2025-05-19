@@ -111,10 +111,8 @@ void main() {
     
     // Declaring a list of teas with some values
     var teas = ['green', 'black', 'chamomile', 'earl grey'];
-    
     // Checking if the 'coffees' list is empty and printing the result
     print(coffees.isEmpty); // Output: true (since the list is empty)
-    
     // Checking if the 'teas' list is not empty and printing the result
     print(teas.isNotEmpty); // Output: true (since the list contains elements)
 }
