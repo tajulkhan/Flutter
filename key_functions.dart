@@ -108,7 +108,6 @@ void main()
 void main() {
     // Declaring an empty list of coffees
     var coffees = [];
-    
     // Declaring a list of teas with some values
     var teas = ['green', 'black', 'chamomile', 'earl grey'];
     // Checking if the 'coffees' list is empty and printing the result
