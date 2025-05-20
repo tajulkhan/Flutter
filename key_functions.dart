@@ -175,13 +175,10 @@ class Student {
 void main() {  
     // Creating an instance of the Student class  
     Student s1 = Student();  
-    
     // Setting values using setters  
     s1.stud_name = 'GFG';  
-    
     // Invalid age, should print an error message 
     s1.stud_age = 0;   
-    
     // Getting values using getters  
     print(s1.stud_name);  // Output: GFG  
     print(s1.stud_age);   // Output: 0 (Default value)  
