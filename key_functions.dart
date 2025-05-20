@@ -144,12 +144,10 @@ class Student {
     // Fields with default values to avoid null errors
     String name = '';  
     int age = 0;   
-    
     // Getter for the student's name  
     String get stud_name {  
         return name;  
     }  
-    
     // Setter for the student's name  
     void set stud_name(String name) {  
         this.name = name;  
@@ -157,7 +155,6 @@ class Student {
     
     // Setter for the student's age with validation  
     void set stud_age(int age) {  
-        
         if (age <= 5) {  
             // Age should be greater than 5
             print("Age should be greater than 5");  
@@ -165,7 +162,6 @@ class Student {
             this.age = age;  
         }  
     }  
-    
     // Getter for the student's age  
     int get stud_age {  
         return age;      
