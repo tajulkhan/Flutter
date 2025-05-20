@@ -135,3 +135,54 @@ void main() {
     print(!teas.every(isDecaffeinated)); // Output: true (since not all teas are chamomile)
 }
 
+// Using Getters and Setters in Dart
+// Dart program to illustrate the use
+// of getters and setters with null safety
+
+class Student {  
+    
+    // Fields with default values to avoid null errors
+    String name = '';  
+    int age = 0;   
+    
+    // Getter for the student's name  
+    String get stud_name {  
+        return name;  
+    }  
+    
+    // Setter for the student's name  
+    void set stud_name(String name) {  
+        this.name = name;  
+    }  
+    
+    // Setter for the student's age with validation  
+    void set stud_age(int age) {  
+        
+        if (age <= 5) {  
+            // Age should be greater than 5
+            print("Age should be greater than 5");  
+        } else {  
+            this.age = age;  
+        }  
+    }  
+    
+    // Getter for the student's age  
+    int get stud_age {  
+        return age;      
+    }  
+}  
+  
+void main() {  
+    // Creating an instance of the Student class  
+    Student s1 = Student();  
+    
+    // Setting values using setters  
+    s1.stud_name = 'GFG';  
+    
+    // Invalid age, should print an error message 
+    s1.stud_age = 0;   
+    
+    // Getting values using getters  
+    print(s1.stud_name);  // Output: GFG  
+    print(s1.stud_age);   // Output: 0 (Default value)  
+}
