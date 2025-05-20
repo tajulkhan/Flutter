@@ -119,4 +119,19 @@ void main(){
     var capLetter = name.map((names)=>names.toUpperCase());
     capLetter.forEach(print);
 }
+//where()
+void main() {
+    // Declaring a list of tea types
+    var teas = ['green', 'black', 'chamomile', 'earl grey'];
+    
+    // Function to check if a tea is decaffeinated
+    // Chamomile is the only decaffeinated tea in this list.
+    bool isDecaffeinated(String teaName) => teaName == 'chamomile';
+    
+    // Using any() to check if at least one tea in the list is decaffeinated.
+    print(teas.any(isDecaffeinated)); // Output: true (since chamomile is present)
+    
+    // Using every() to check if all teas in the list are decaffeinated.
+    print(!teas.every(isDecaffeinated)); // Output: true (since not all teas are chamomile)
+}
 
