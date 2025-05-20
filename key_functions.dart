@@ -113,5 +113,10 @@ void main() {
     // Checking if the 'teas' list is not empty and printing the result
     print(teas.isNotEmpty); // Output: true (since the list contains elements)
 }
-
+// forEach()
+void main(){
+    var name = ['taj', 'vasim', 'sulthan'];
+    var capLetter = name.map((names)=>names.toUpperCase());
+    capLetter.forEach(print);
+}
 
