@@ -206,13 +206,10 @@ void main() {
 class Cat {
     // Private field to track hunger state
     bool _isHungry = true;
-    
     // Getter: A cat is cuddly when it's not hungry
     bool get isCuddly => !_isHungry;
-    
     // Getter: Returns the hunger state
     bool get isHungry => _isHungry;
-    
     // Setter: Updates the hunger state
     set isHungry(bool hungry) {
         _isHungry = hungry;
