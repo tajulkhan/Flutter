@@ -202,7 +202,6 @@ void main() {
     // Checking updated state: Is cat cuddly? true
     print("Is cat cuddly? ${cat.isCuddly}"); 
 }
-
 class Cat {
     // Private field to track hunger state
     bool _isHungry = true;
