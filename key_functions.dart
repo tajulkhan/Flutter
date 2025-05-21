@@ -197,8 +197,7 @@ void main() {
     cat.isHungry = false;   
     
     // Checking updated state: Is cat hungry? false
-    print("Is cat hungry? ${cat.isHungry}");
-    
+    print("Is cat hungry? ${cat.isHungry}")
     // Checking updated state: Is cat cuddly? true
     print("Is cat cuddly? ${cat.isCuddly}"); 
 }
