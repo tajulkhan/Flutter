@@ -192,7 +192,6 @@ void main() {
     print("Is cat cuddly? ${cat.isCuddly}");  
     
     print("Feed cat.");
-    
     // Setting isHungry to false (feeding the cat)
     cat.isHungry = false;   
     
