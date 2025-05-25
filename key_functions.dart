@@ -39,7 +39,6 @@ void main()
     // Printing output
     print(output);
 }
-
 // Function without parameter and return value. 
 void GFG()
 {
