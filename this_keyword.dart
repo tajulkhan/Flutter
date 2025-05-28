@@ -22,7 +22,6 @@ void main() {
     mob m1 = new mob();
     m1.Car("M101");
 }
-
 class mob {
     String mobile = "";
     Car(String mobile) {
