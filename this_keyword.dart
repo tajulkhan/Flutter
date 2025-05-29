@@ -37,3 +37,17 @@ void main(){
 void hello() async {
   print('something exciting is going to happen here...');
 }
+// Function that returns a Future that
+// completes after a given delay
+Future delayedPrint(int seconds, String msg) {
+    final duration = Duration(seconds: seconds);
+    return Future.delayed(duration).then((value) => msg);
+}
+
+void main() async {
+    print('Life'); 
+    await delayedPrint(2, "Is").then((status) {
+        print(status);
+    });
+    print('Good');
+}
