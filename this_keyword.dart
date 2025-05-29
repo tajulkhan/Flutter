@@ -30,3 +30,10 @@ class mob {
         print("The mobile is : ${mobile}");
     }
 }
+// Using await async in Dart
+void main(){
+  hello();
+}
+void hello() async {
+  print('something exciting is going to happen here...');
+}
